@@ -1,2 +1,3 @@
 idf_component_register(SRCS "main.c"
-                    INCLUDE_DIRS ".")
+                    INCLUDE_DIRS "."
+                    REQUIRES bluetooth_config mpu6050 bt)
