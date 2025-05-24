@@ -17,6 +17,18 @@
         "esp_gap_bt_api.h": "c",
         "esp_bt_main.h": "c",
         "btc_spp.h": "c",
-        "mpu6050.h": "c"
+        "mpu6050.h": "c",
+        "adc.h": "c",
+        "adc_types_legacy.h": "c",
+        "gpio.h": "c",
+        "adc_types.h": "c",
+        "adc_oneshot.h": "c",
+        "cstdint": "c",
+        "bluetooth_config.h": "c",
+        "freertos_callback.h": "c",
+        "adc_voltage_measurement.h": "c",
+        "adc_cali_scheme.h": "c",
+        "esp_log.h": "c",
+        "task.h": "c"
     }
 }
