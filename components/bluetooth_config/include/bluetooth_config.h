@@ -31,6 +31,7 @@ extern uint32_t esp_global_spp_handle; // Global handle for SPP connection
 static const char local_device_name[] = "ESK8";
 
 extern esp_err_t BT_error;
+extern bool connection_established; // Flag to indicate if a connection is established
 
 esp_err_t nvs_init();
 esp_err_t bt_controller_init();

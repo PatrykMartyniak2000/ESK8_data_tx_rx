@@ -24,12 +24,12 @@ static void esp_spp_cb(esp_spp_cb_event_t event, esp_spp_cb_param_t *param){
         break;
     case ESP_SPP_OPEN_EVT:
         ESP_LOGI(SPP_TAG, "ESP_SPP_OPEN_EVT");
-        esp_global_spp_handle = param->srv_open.handle;
         break;
     case ESP_SPP_CLOSE_EVT:
         ESP_LOGI(SPP_TAG, "ESP_SPP_CLOSE_EVT status:%d handle:%"PRIu32" close_by_remote:%d", param->close.status,
-            param->close.handle, param->close.async);
-            esp_global_spp_handle = 0; // Reset global handle on close
+        param->close.handle, param->close.async);
+        esp_global_spp_handle = 0; // Reset global handle on close
+        connection_established = false; // Reset connection established flag
         break;
     case ESP_SPP_START_EVT:
         if (param->start.status == ESP_SPP_SUCCESS) {
@@ -58,6 +58,7 @@ static void esp_spp_cb(esp_spp_cb_event_t event, esp_spp_cb_param_t *param){
         ESP_LOGI(SPP_TAG, "ESP_SPP_SRV_OPEN_EVT status");
         ESP_LOGI(SPP_TAG, "Client connected, handle=%d", param->srv_open.handle);
         esp_global_spp_handle = param->srv_open.handle;
+        connection_established = true; // Set connection established flag
         break;
     case ESP_SPP_SRV_STOP_EVT:
         ESP_LOGI(SPP_TAG, "ESP_SPP_SRV_STOP_EVT");
